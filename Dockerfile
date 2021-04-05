@@ -37,6 +37,7 @@ RUN wget -O weewx-mqtt.zip https://github.com/matthewwall/weewx-mqtt/archive/mas
   \
   && wget https://github.com/cavedon/weewx-aprs/archive/v0.1.tar.gz \
   && wee_extension --install v0.1.tar.gz \
+  && sed -i 's/wind_average/windSpeed/g' /usr/share/weewx/user/aprs.py \
   \
   && sed -i -e "s+-/var/log/messages+/dev/stdout+" /etc/rsyslog.conf \
   && sed -i -e "s+-/var/log/debug+/dev/stdout+" /etc/rsyslog.conf \
